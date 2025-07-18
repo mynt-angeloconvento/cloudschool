@@ -84,43 +84,41 @@ public class Calculator {
 
     // ##### QUOTIENT #####
     public int divide(int a, int b) {
-        if (b == 0) {
-            return -1;
+        try {
+            return a/b;
+        } catch (ArithmeticException e) {
+            throw e;
         }
-        return a/b;
     }
 
     public double divide(double a, double b) {
-        if (b == 0) {
-            return -1;
+        if (b == 0.0) {
+            throw new ArithmeticException("Can't divide by 0.");
         }
         return a/b;
     }
 
     public float divide(float a, float b) {
-        if (b == 0) {
-            return -1;
-        }
-        return (float) (a/b);
-    }
-
-    public long divide(long a, long b) {
-        if (b == 0) {
-            return -1;
+        if (b == 0.0f) {
+            throw new ArithmeticException("Can't divide by 0.");
         }
         return a/b;
     }
 
+    public long divide(long a, long b) {
+        try {
+            return a/b;
+        } catch (ArithmeticException e) {
+            throw e;
+        }
+    }
+
 
     public short divide(short a, short b) {
-        if (b == 0) {
-            return -1;
+        try {
+            return (short) (a/b);
+        } catch (ArithmeticException e) {
+            throw e;
         }
-        return (short) (a/b);
     }
-//
-//    public int modulo(int a, int b) {
-//        return a%b;
-//    }
-
 }
