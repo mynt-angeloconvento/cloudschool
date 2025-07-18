@@ -177,4 +177,45 @@ class CalculatorTest {
         float result = calculator.divide(6.05f, 5.5f);
         assertEquals(1.1f, result, 0.0001);
     }
+
+    @Test
+    void calculateIntUndefinedQuotient() {
+        calculator.turnOn();
+        assertThrows(ArithmeticException.class, () -> {
+            calculator.divide(7, 0);
+        });
+    }
+
+    @Test
+    void calculateDoubleUndefinedQuotient() {
+        calculator.turnOn();
+        assertThrows(ArithmeticException.class, () -> {
+            calculator.divide(8.12, 0);
+        });
+    }
+
+    @Test
+    void calculateFloatUndefinedQuotient() {
+        calculator.turnOn();
+        assertThrows(ArithmeticException.class, () -> {
+            calculator.divide(7.23, 0);
+        });
+    }
+
+    @Test
+    void calculateLongUndefinedQuotient() {
+        calculator.turnOn();
+        assertThrows(ArithmeticException.class, () -> {
+            calculator.divide(231231237, 0);
+        });
+    }
+
+    @Test
+    void calculateShortUndefinedQuotient() {
+        calculator.turnOn();
+        assertThrows(ArithmeticException.class, () -> {
+            calculator.divide(723, 0);
+        });
+    }
+
 }
